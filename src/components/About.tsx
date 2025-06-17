@@ -171,54 +171,6 @@ const About = () => {
                 </div>
                 <p className="text-gray-300">AI Engineering • Data Science • Full-Stack Development</p>
               </div>
-
-              {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <Mail className="w-5 h-5 text-blue-400 mr-3" />
-                  <h3 className="text-xl font-semibold text-white">Send Message</h3>
-                </div>
-                
-                <div className="space-y-4">
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500"
-                  />
-                  
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500"
-                  />
-                  
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 min-h-[120px]"
-                  />
-                  
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </div>
-              </form>
             </div>
           </div>
         </div>
