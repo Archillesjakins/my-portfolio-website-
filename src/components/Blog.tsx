@@ -1,8 +1,36 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Blog = () => {
+  const { toast } = useToast();
+
+  const handleViewAllArticles = () => {
+    // Copy search text to clipboard
+    navigator.clipboard.writeText("Machine learning Pipeline and Agentic AI");
+    
+    // Show toast notification first
+    toast({
+      title: "Search Text Copied!",
+      description: "Please paste the copied text in the search box of the opened page",
+      duration: 3000,
+      className: "bg-gradient-to-r from-gray-900 to-black border border-gray-800",
+      style: {
+        background: "linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.95))",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(75, 85, 99, 0.3)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        color: "#ffffff",
+      },
+    });
+
+    // Add a delay before opening the new tab
+    setTimeout(() => {
+      window.open("https://newsai-app.vercel.app", "_blank");
+    }, 2000); // 2 second delay
+  };
+
   const blogPosts = [
     {
       title: "The Future of Large Language Models in Enterprise Applications",
@@ -100,7 +128,11 @@ const Blog = () => {
         </div>
         
         <div className="text-center">
-          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+            onClick={handleViewAllArticles}
+          >
             View All Articles
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

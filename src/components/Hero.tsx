@@ -12,6 +12,14 @@ const Hero = () => {
       title: "GitHub Profile",
       description: "Opening GitHub profile in a new tab...",
       duration: 3000,
+      className: "bg-gradient-to-r from-gray-900 to-black border border-gray-800",
+      style: {
+        background: "linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.95))",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(75, 85, 99, 0.3)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        color: "#ffffff",
+      },
     });
   };
 
@@ -22,6 +30,14 @@ const Hero = () => {
       title: "LinkedIn Profile",
       description: "Opening LinkedIn profile in a new tab...",
       duration: 3000,
+      className: "bg-gradient-to-r from-gray-900 to-black border border-gray-800",
+      style: {
+        background: "linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.95))",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(75, 85, 99, 0.3)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        color: "#ffffff",
+      },
     });
   };
 
@@ -32,17 +48,37 @@ const Hero = () => {
       title: "Email Client",
       description: "Opening email client...",
       duration: 3000,
+      className: "bg-gradient-to-r from-gray-900 to-black border border-gray-800",
+      style: {
+        background: "linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.95))",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(75, 85, 99, 0.3)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        color: "#ffffff",
+      },
     });
   };
 
   const handleResumeClick = () => {
-    // Open resume in a new tab
-    window.open('/src/components/ARCHILLES JACOB CV-1.pdf', '_blank');
+    // Add a delay before opening the resume
     toast({
       title: "Resume",
       description: "Opening resume in a new tab...",
       duration: 3000,
+      className: "bg-gradient-to-r from-gray-900 to-black border border-gray-800",
+      style: {
+        background: "linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.95))",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(75, 85, 99, 0.3)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        color: "#ffffff",
+      },
     });
+
+    // Add a delay before opening the resume
+    setTimeout(() => {
+      window.open('/src/components/ARCHILLES JACOB CV-1.pdf', '_blank');
+    }, 2000);
   };
 
   return (

@@ -99,7 +99,7 @@ const Projects = () => {
       icon: Newspaper,
       image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=600&fit=crop",
       githubUrl: "https://github.com/Archillesjakins/News-Search-Engine",
-      demoUrl: ""
+      demoUrl: "https://newsai-app.vercel.app"
     },
     {
       title: "Crop Disease Detection",
