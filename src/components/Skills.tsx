@@ -28,9 +28,9 @@ const Skills = () => {
       title: "AI Engineering",
       icon: Brain,
       skills: [
-        { name: "TensorFlow/PyTorch", level: 85 },
-        { name: "Hugging Face", level: 80 },
-        { name: "OpenCV", level: 75 },
+        { name: "TensorFlow || PyTorch || Beautyfulsoup", level: 85 },
+        { name: "Hugging Face || Midjourney || Hyperparameter", level: 80 },
+        { name: "OpenCV || AI Agentic Tools", level: 75 },
         { name: "LLMs & RAG", level: 90 }
       ],
       color: "from-emerald-500 to-emerald-600"
@@ -41,8 +41,8 @@ const Skills = () => {
       skills: [
         { name: "React/Next.js", level: 85 },
         { name: "Flask/Django", level: 80 },
-        { name: "Node.js", level: 75 },
-        { name: "SQL Databases", level: 85 }
+        { name: "Node.js || Figma || CSS Varibles", level: 75 },
+        { name: "SQL Databases || Mango DB", level: 85 }
       ],
       color: "from-orange-500 to-orange-600"
     }

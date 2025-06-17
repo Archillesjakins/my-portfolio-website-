@@ -1,8 +1,45 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, ArrowUpRight, Brain, Globe, ShoppingCart, Database, Newspaper, Leaf } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Projects = () => {
+  const { toast } = useToast();
+
+  const handleGithubClick = (url: string) => {
+    if (url) {
+      window.open(url, '_blank');
+      toast({
+        title: "GitHub Repository",
+        description: "Opening repository in a new tab...",
+        duration: 3000,
+      });
+    } else {
+      toast({
+        title: "Repository Unavailable",
+        description: "This repository is currently private or not available.",
+        duration: 3000,
+      });
+    }
+  };
+
+  const handleDemoClick = (url: string) => {
+    if (url) {
+      window.open(url, '_blank');
+      toast({
+        title: "Live Demo",
+        description: "Opening demo in a new tab...",
+        duration: 3000,
+      });
+    } else {
+      toast({
+        title: "Demo Unavailable",
+        description: "This project's demo is currently not available.",
+        duration: 3000,
+      });
+    }
+  };
+
   const projects = [
     {
       title: "Health-Transcribe",
@@ -12,7 +49,9 @@ const Projects = () => {
       impact: "Enables real-time, context-aware multilingual communication",
       gradient: "from-blue-500 to-cyan-600",
       icon: Globe,
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
+      githubUrl: "https://github.com/Archillesjakins/Health-Transcribe",
+      demoUrl: "https://health-transcribe.vercel.app"
     },
     {
       title: "ArchieAI React",
@@ -22,7 +61,9 @@ const Projects = () => {
       impact: "Comprehensive AI assistant for multiple professional tasks",
       gradient: "from-purple-500 to-pink-600",
       icon: Brain,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      githubUrl: "https://github.com/Archillesjakins/ArchieAI-React",
+      demoUrl: "https://archie-ai.vercel.app"
     },
     {
       title: "E-commerce Recommendation LLM System",
@@ -32,7 +73,9 @@ const Projects = () => {
       impact: "Enhanced user engagement and product discovery",
       gradient: "from-emerald-500 to-teal-600",
       icon: ShoppingCart,
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f9da2c?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f9da2c?w=800&h=600&fit=crop",
+      githubUrl: "https://github.com/Archillesjakins/E-commerce-Recommendation-LLM",
+      demoUrl: ""
     },
     {
       title: "E-commerce Management System",
@@ -42,17 +85,21 @@ const Projects = () => {
       impact: "Streamlined order processes for online retail",
       gradient: "from-orange-500 to-red-600",
       icon: Database,
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
+      githubUrl: "https://github.com/Archillesjakins/E-commerce-Management-System",
+      demoUrl: ""
     },
     {
-      title: "News Web App Flask",
-      description: "Flask-based web application for summarizing and analyzing news articles with keyword-based content filtering.",
+      title: "News Search Engine",
+      description: "A web application for summarizing and analyzing news articles with keyword-based content filtering.",
       technologies: ["Python", "Flask", "NLP", "Web Scraping"],
       category: "Full-Stack Development",
       impact: "Facilitates quick information consumption",
       gradient: "from-indigo-500 to-blue-600",
       icon: Newspaper,
-      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=600&fit=crop",
+      githubUrl: "https://github.com/Archillesjakins/News-Search-Engine",
+      demoUrl: ""
     },
     {
       title: "Crop Disease Detection",
@@ -62,7 +109,9 @@ const Projects = () => {
       impact: "Improved crop health management for agriculture",
       gradient: "from-green-500 to-emerald-600",
       icon: Leaf,
-      image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop",
+      githubUrl: "https://github.com/Archillesjakins/Crop-Disease-Detection",
+      demoUrl: ""
     }
   ];
 
@@ -120,11 +169,20 @@ const Projects = () => {
                   </div>
                   
                   <div className="flex space-x-3">
-                    <Button size="sm" variant="outline" className="flex-1 bg-transparent border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-500">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1 bg-transparent border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-500"
+                      onClick={() => handleGithubClick(project.githubUrl)}
+                    >
                       <Github className="mr-2 h-4 w-4" />
                       Code
                     </Button>
-                    <Button size="sm" className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                      onClick={() => handleDemoClick(project.demoUrl)}
+                    >
                       <ArrowUpRight className="mr-2 h-4 w-4" />
                       Live Demo
                     </Button>

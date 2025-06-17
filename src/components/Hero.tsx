@@ -1,7 +1,50 @@
 import { Github, Linkedin, Mail, ArrowDown, Download, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 
 const Hero = () => {
+  const { toast } = useToast();
+
+  const handleGithubClick = () => {
+    // Open GitHub profile in a new tab
+    window.open('https://github.com/Archillesjakins', '_blank');
+    toast({
+      title: "GitHub Profile",
+      description: "Opening GitHub profile in a new tab...",
+      duration: 3000,
+    });
+  };
+
+  const handleLinkedInClick = () => {
+    // Open LinkedIn profile in a new tab
+    window.open('https://linkedin.com/in/archilles-jacob-705695169', '_blank');
+    toast({
+      title: "LinkedIn Profile",
+      description: "Opening LinkedIn profile in a new tab...",
+      duration: 3000,
+    });
+  };
+
+  const handleEmailClick = () => {
+    // Open email client with pre-filled template
+    window.location.href = 'mailto:jakingsarchly@gmail.com?subject=Project%20Inquiry&body=Hello%20Archilles%2C%0A%0AI%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.%0A%0ABest%20regards%2C';
+    toast({
+      title: "Email Client",
+      description: "Opening email client...",
+      duration: 3000,
+    });
+  };
+
+  const handleResumeClick = () => {
+    // Open resume in a new tab
+    window.open('/src/components/ARCHILLES JACOB CV-1.pdf', '_blank');
+    toast({
+      title: "Resume",
+      description: "Opening resume in a new tab...",
+      duration: 3000,
+    });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
       {/* Animated background elements */}
@@ -45,6 +88,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="bg-transparent border-gray-600 text-white hover:bg-gray-800 hover:border-gray-400 transition-all duration-300 backdrop-blur-sm"
+              onClick={handleEmailClick}
             >
               <Mail className="mr-2 h-5 w-5" />
               Get In Touch
@@ -52,6 +96,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+              onClick={handleGithubClick}
             >
               <Github className="mr-2 h-5 w-5" />
               View Projects
@@ -60,6 +105,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all duration-300"
+              onClick={handleResumeClick}
             >
               <Download className="mr-2 h-5 w-5" />
               Resume
@@ -80,24 +126,24 @@ const Hero = () => {
           </div>
           
           <div className="flex justify-center space-x-8 text-gray-400">
-            <a 
-              href="https://github.com/Archillesjakins" 
+            <button 
+              onClick={handleGithubClick}
               className="hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 p-2 rounded-full hover:bg-gray-800/50"
             >
               <Github className="h-7 w-7" />
-            </a>
-            <a 
-              href="https://linkedin.com/in/archilles-jacob-705695169" 
+            </button>
+            <button 
+              onClick={handleLinkedInClick}
               className="hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 p-2 rounded-full hover:bg-gray-800/50"
             >
               <Linkedin className="h-7 w-7" />
-            </a>
-            <a 
-              href="mailto:jakingsarchly@gmail.com" 
+            </button>
+            <button 
+              onClick={handleEmailClick}
               className="hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/25 p-2 rounded-full hover:bg-gray-800/50"
             >
               <Mail className="h-7 w-7" />
-            </a>
+            </button>
           </div>
         </div>
         

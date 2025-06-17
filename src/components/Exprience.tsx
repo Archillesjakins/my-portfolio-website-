@@ -15,6 +15,22 @@ const Experience = () => {
       ]
     },
     {
+        title: "AI & Backend Developer",
+        company: "Ideation Axis (Internship)",
+        location: "Remote",
+        period: "2024 - Present",
+        description: "Building Robust Backend system and Data Pipline, optmizing database query for larger consumers",
+        achievements: [
+          "Developed and optimized AI models for real-time farm monitoring and pest detection.",
+          "Designed interactive chatbot applications for intelligent user engagement.",
+          "Implemented secure authentication systems and database management using PostgreSQL and SQLite.",
+          "Advised on best practices for AI deployment and ethical considerations in model development.",
+          "Specialized in LLM applications and recommendation systems",
+         "Delivered end-to-end data science projects from conception to deployment"
+        ]
+      },
+
+    {
       title: "Full-Stack Developer",
       company: "Independent Projects",
       location: "Accra, Ghana",

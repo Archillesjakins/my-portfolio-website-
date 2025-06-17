@@ -28,7 +28,7 @@ const About = () => {
                     <div className="text-sm text-gray-400">Projects Completed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+                    <div className="text-3xl font-bold text-purple-400 mb-2">5+</div>
                     <div className="text-sm text-gray-400">Years Experience</div>
                   </div>
                   <div className="text-center">
@@ -44,7 +44,7 @@ const About = () => {
                     <div className="w-4 h-4 bg-purple-500 rounded-full mr-3"></div>
                     <h3 className="text-xl font-semibold text-white">Location</h3>
                   </div>
-                  <p className="text-gray-300">Accra, Greater Accra Region, Ghana</p>
+                  <p className="text-gray-300">Open to all location across</p>
                 </div>
                 
                 <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105">
