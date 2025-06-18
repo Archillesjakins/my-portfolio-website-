@@ -3,9 +3,13 @@ import { Badge } from '@/components/ui/badge';
 import { FileText, Download, Calendar, FileImage, File, Folder } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/hooks/use-toast';
+
 
 const FileStorage = () => {
   const [isDownloading, setIsDownloading] = useState<string | null>(null);
+  const { toast } = useToast();
+
 
   const handleEmailClick = () => {
     // Open email client with pre-filled template
@@ -27,7 +31,7 @@ const FileStorage = () => {
       category: "Documents",
       icon: FileText,
       color: "from-red-500 to-red-600",
-      file: "/src/components/ARCHILLES JACOB CV-1.pdf"
+      file: "/documents/ARCHILLES JACOB CV-1.pdf"
     },
     {
       name: "Portfolio_Case_Study_HealthTranscribe.pdf",
@@ -38,7 +42,7 @@ const FileStorage = () => {
       category: "Case Studies",
       icon: FileText,
       color: "from-blue-500 to-blue-600",
-      file: "/src/components/Health Transcribe Report .pdf"
+      file: "/documents/Health Transcribe Report .pdf"
     },
     {
       name: "AI_Project_Presentations.pdf",
@@ -49,7 +53,7 @@ const FileStorage = () => {
       category: "Presentations",
       icon: FileText,
       color: "from-purple-500 to-purple-600",
-      file: "/src/components/AI Marketing Tools.pdf"
+      file: "/documents/AI Marketing Tools.pdf"
     },
     {
       name: "Technical_Certifications.pdf",

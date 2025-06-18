@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script>
+      // Force dark mode
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+      // Set status bar color for iOS
+      if (window.navigator.standalone) {
+        document.documentElement.style.backgroundColor = '#000000';
+      }
+    </script>
     <title>Archilles Jacob - AI Engineer & Data Scientist Portfolio</title>
     <meta name="description" content="Portfolio of Archilles Jacob - Data Scientist, AI Engineer, and Software Developer specializing in machine learning, deep learning, and full-stack development." />
     <meta name="author" content="Archilles Jacob" />

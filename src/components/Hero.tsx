@@ -77,7 +77,7 @@ const Hero = () => {
 
     // Add a delay before opening the resume
     setTimeout(() => {
-      window.open('/src/components/ARCHILLES JACOB CV-1.pdf', '_blank');
+      window.open('https://drive.google.com/file/d/1ped-gGK8rzQzTn8HP_Dh6hbekdtX5sK0/view?usp=sharing', '_blank');
     }, 2000);
   };
 

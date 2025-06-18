@@ -120,7 +120,7 @@ const About = () => {
           
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div className="space-y-6">
-              <p className="text-lg text-gray-300 leading-relaxed">
+              {/* <p className="text-lg text-gray-300 leading-relaxed">
                 I'm a highly motivated and versatile engineer with robust expertise across Data Science, AI Engineering, and Software Development. Based in Accra, Ghana, I specialize in designing, developing, and deploying innovative solutions that bridge the gap between cutting-edge AI research and practical applications.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
@@ -128,7 +128,7 @@ const About = () => {
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 With a comprehensive technical skill set spanning multiple domains, I'm eager to leverage emerging technologies to drive impactful projects and push the boundaries of what's possible in AI and software development.
-              </p>
+              </p> */}
               
               {/* Key Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8">
