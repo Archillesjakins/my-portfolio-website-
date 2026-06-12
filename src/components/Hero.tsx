@@ -103,7 +103,7 @@ const Hero = () => {
             <img 
               src="/studio_background_portrait.jpg" 
               alt="Archilles Jacob" 
-              className="w-full h-full rounded-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-full rounded-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
             />
           </div>
           
