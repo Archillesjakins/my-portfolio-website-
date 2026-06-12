@@ -214,7 +214,7 @@ const ResumeChatbot = () => {
           <div className="w-full h-full rounded-full bg-black flex items-center justify-center relative overflow-hidden">
             {/* Pulsing indicator */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 animate-pulse"></div>
-            <Sparkles className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300 relative z-10" />
+            <span className="text-white font-mono font-bold text-lg tracking-wider group-hover:scale-110 transition-transform duration-300 relative z-10">AJ</span>
           </div>
           {/* Unread dot */}
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-black animate-bounce"></div>
