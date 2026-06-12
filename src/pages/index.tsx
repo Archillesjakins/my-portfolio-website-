@@ -1,13 +1,15 @@
+import { Suspense, lazy } from 'react';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Experience from '@/components/Exprience';
-import Blog from '@/components/Blog';
-import Analytics from '@/components/Analytics';
-import FileStorage from '@/components/FileStorage';
-import Contact from '@/components/Contact';
 import Navbar from '@/components/Navbar';
+
+const About = lazy(() => import('@/components/About'));
+const Skills = lazy(() => import('@/components/Skills'));
+const Projects = lazy(() => import('@/components/Projects'));
+const Experience = lazy(() => import('@/components/Exprience'));
+const Blog = lazy(() => import('@/components/Blog'));
+const Analytics = lazy(() => import('@/components/Analytics'));
+const FileStorage = lazy(() => import('@/components/FileStorage'));
+const Contact = lazy(() => import('@/components/Contact'));
 
 const Index = () => {
   return (
@@ -17,30 +19,33 @@ const Index = () => {
         <section id="home">
           <Hero />
         </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="skills">
-          <Skills />
-        </section>
-        <section id="projects">
-          <Projects />
-        </section>
-        <section id="experience">
-          <Experience />
-        </section>
-        <section id="blog">
-          <Blog />
-        </section>
-        <section id="analytics">
-          <Analytics />
-        </section>
-        <section id="storage">
-          <FileStorage />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
+        
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-500">Loading sections...</div>}>
+          <section id="about">
+            <About />
+          </section>
+          <section id="skills">
+            <Skills />
+          </section>
+          <section id="projects">
+            <Projects />
+          </section>
+          <section id="experience">
+            <Experience />
+          </section>
+          <section id="blog">
+            <Blog />
+          </section>
+          <section id="analytics">
+            <Analytics />
+          </section>
+          <section id="storage">
+            <FileStorage />
+          </section>
+          <section id="contact">
+            <Contact />
+          </section>
+        </Suspense>
       </main>
       
       {/* Footer */}

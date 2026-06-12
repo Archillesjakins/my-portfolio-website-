@@ -120,15 +120,46 @@ const About = () => {
           
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div className="space-y-6">
-              {/* <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a highly motivated and versatile engineer with robust expertise across Data Science, AI Engineering, and Software Development. Based in Accra, Ghana, I specialize in designing, developing, and deploying innovative solutions that bridge the gap between cutting-edge AI research and practical applications.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                My passion lies in creating intelligent systems that solve real-world problems, from real-time AI applications and sophisticated machine learning models to scalable web platforms that enhance user experiences.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                With a comprehensive technical skill set spanning multiple domains, I'm eager to leverage emerging technologies to drive impactful projects and push the boundaries of what's possible in AI and software development.
-              </p> */}
+              <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
+                <p>
+                  If your team is spending hours on tasks that should take minutes — processing documents, managing leads, generating reports, handling repetitive workflows — I build the systems that eliminate that. You get working automation, not a proof of concept.
+                </p>
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700/50">
+                  <h4 className="text-white font-semibold mb-4">Two examples of what that looks like in production:</h4>
+                  <ul className="space-y-4">
+                    <li>
+                      <strong className="text-blue-400">Sono Health</strong> — a clinical AI platform I founded that reduces medical report writing, research, and diagnosis from hours to minutes. Built with a Voice-to-Narrative pipeline, real-time document search grounded in medical literature, and a FHIR-compliant backend built for healthcare data sensitivity.
+                    </li>
+                    <li>
+                      <strong className="text-purple-400">UmukoziHR</strong> — an AI recruiting platform where I served as Founding Engineer. Autonomous agents replaced weeks of manual candidate research and shortlisting, compressing the process to minutes. 100,000+ lines of production code shipped across the platform.
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-white font-semibold mb-3">What I build for clients:</h4>
+                  <ul className="space-y-2 list-none">
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> AI agents that handle multi-step tasks without supervision</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> RAG systems — upload your documents, ask questions, get accurate answers</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Backend APIs (FastAPI + PostgreSQL) — production-ready, secured, documented</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Workflow automation — connecting your tools so data moves without manual input</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Voice AI pipelines — speak, get structured output on the other end</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Healthcare AI — FHIR-compliant, PHI-aware, EHR-ready systems</li>
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-gray-800">
+                  <p className="mb-4">
+                    <strong className="text-white">Stack:</strong> Python · FastAPI · PostgreSQL · OpenAI · Claude · Gemini · LangChain · AWS · Docker · Redis · n8n
+                  </p>
+                  <p className="mb-4 text-sm text-gray-400">
+                    I've also consulted for European clients for 2.5 years — translating complex AI architecture into plain business outcomes for founders and executives who don't speak code.
+                  </p>
+                  <p className="text-white font-medium">
+                    If your team is drowning in manual workflows, I'll replace them with systems that run without supervision. I don't disappear after delivery — I hand over documented, maintainable systems your team can own.
+                  </p>
+                </div>
+              </div>
               
               {/* Key Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8">

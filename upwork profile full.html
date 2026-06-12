@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upwork Full Profile — Archilles Jacob</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root {
+    --bg:#07090f;--surface:#0f1219;--card:#141821;--border:#1e2535;
+    --green:#00d4a0;--blue:#4da6ff;--purple:#a78bfa;--orange:#f59e0b;
+    --text:#e2e8f0;--muted:#64748b;--dim:#1a2030;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;padding:2rem 1rem 5rem;min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto}
+  .page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+  .page-title{font-size:24px;font-weight:700;color:var(--text);margin-bottom:4px}
+  .page-sub{font-size:13px;color:var(--muted);margin-bottom:2rem;line-height:1.6}
+  .insight-box{background:#0d1420;border:1px solid var(--blue);border-radius:12px;padding:1rem 1.25rem;margin-bottom:2rem}
+  .insight-label{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+  .insight-text{font-size:12.5px;color:var(--muted);line-height:1.7}
+  .insight-text strong{color:var(--blue)}
+  .section{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .section-head{padding:.75rem 1rem;border-bottom:1px solid var(--border);background:var(--surface);display:flex;justify-content:space-between;align-items:center}
+  .section-label{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:500;text-transform:uppercase;letter-spacing:.1em}
+  .green{color:var(--green)}.blue{color:var(--blue)}.purple{color:var(--purple)}.orange{color:var(--orange)}
+  .badge{font-size:9px;padding:2px 8px;border-radius:10px;margin-left:8px;font-family:'JetBrains Mono',monospace}
+  .badge-changed{background:#0d2010;color:var(--green);border:1px solid var(--green)}
+  .badge-new{background:#0d1420;color:var(--blue);border:1px solid var(--blue)}
+  .copy-btn{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 10px;border:1px solid var(--border);border-radius:5px;background:transparent;color:var(--muted);cursor:pointer;transition:all .15s}
+  .copy-btn:hover{border-color:var(--green);color:var(--green)}
+  .copy-btn.ok{border-color:var(--green);color:var(--green)}
+  .section-body{padding:1rem 1.1rem;font-size:13.5px;line-height:1.8;color:var(--text);white-space:pre-wrap}
+  .portfolio-grid{display:grid;gap:10px;padding:1rem}
+  .portfolio-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .portfolio-card-head{padding:.6rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+  .portfolio-card-title{font-size:13px;font-weight:600;color:var(--text)}
+  .portfolio-card-body{padding:.75rem 1rem;font-size:12.5px;line-height:1.75;color:var(--muted);white-space:pre-wrap}
+  .field-row{display:grid;grid-template-columns:90px 1fr;gap:6px;margin-bottom:6px;font-size:12px}
+  .field-key{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:10px;padding-top:2px;text-transform:uppercase}
+  .field-val{color:var(--text)}
+  .result-val{color:var(--green);font-weight:600}
+  .copy-all{width:100%;padding:.875rem;background:var(--green);color:#000;border:none;border-radius:10px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:.5rem;transition:opacity .15s}
+  .copy-all:hover{opacity:.85}
+  .copy-all.ok{background:var(--blue);color:#fff}
+  .char-bar{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.6rem 1rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .char-label{font-size:11px;color:var(--muted);white-space:nowrap}
+  .char-track{flex:1;height:4px;background:var(--dim);border-radius:2px;overflow:hidden}
+  .char-fill{height:100%;background:var(--green);border-radius:2px;transition:width .3s}
+  .char-count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);white-space:nowrap}
+  .tip{font-size:11px;color:var(--muted);margin-top:6px;font-family:'JetBrains Mono',monospace;text-align:center}
+  .divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+  .proposal-tip{background:#0d1a10;border:1px solid var(--green);border-radius:10px;padding:1rem 1.25rem;margin-bottom:12px}
+  .proposal-tip-label{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+  .proposal-tip-text{font-size:13px;color:var(--muted);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="page-eyebrow">Upwork Profile — Full Rebuild</div>
+<div class="page-title">Archilles Jacob Azameti</div>
+<div class="page-sub">Tailored to official Upwork feedback. Every section rewritten for the business owner buyer, not the technical audience. Changes marked with tags.</div>
+
+<div class="insight-box">
+  <div class="insight-label">Official Upwork Feedback — Applied</div>
+  <div class="insight-text">
+    <strong>Headline:</strong> Simplify — remove "agentic/multi-agent" jargon, lead with buyer outcome.<br>
+    <strong>Overview:</strong> First lines = what the client gets, not what you've built. Products as proof, not opener.<br>
+    <strong>Portfolio:</strong> Case study format — problem → build → tech → measurable result.<br>
+    <strong>Proposals:</strong> Target AI-aware clients, connect to their workflow, not your stack.
+  </div>
+</div>
+
+<!-- HEADLINE -->
+<div class="section">
+  <div class="section-head">
+    <div class="section-label green">Headline <span class="badge badge-changed">Changed</span></div>
+    <button class="copy-btn" onclick="cp(this,'AI Automation Engineer | RAG, AI Agents & FastAPI Backends')">copy</button>
+  </div>
+  <div class="section-body">AI Automation Engineer | RAG, AI Agents & FastAPI Backends</div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section">
+  <div class="section-head">
+    <div class="section-label green">Overview / Bio <span class="badge badge-changed">Full Rewrite</span></div>
+    <button class="copy-btn" id="ovBtn" onclick="cp(this, document.getElementById('overview').innerText)">copy</button>
+  </div>
+  <div class="section-body" id="overview">I build AI agents, RAG systems, and backend automation that reduce manual work and connect cleanly to your existing tools.
+
+If your team is spending hours on tasks that should take minutes — processing documents, managing leads, generating reports, handling repetitive workflows — I build the systems that eliminate that. You get working automation, not a proof of concept.
+
+Two examples of what that looks like in production:
+
+Sono Health — a clinical AI platform I founded that reduces medical report writing, research, and diagnosis from hours to minutes. Built with a Voice-to-Narrative pipeline, real-time document search grounded in medical literature, and a FHIR-compliant backend built for healthcare data sensitivity.
+
+UmukoziHR — an AI recruiting platform where I served as Founding Engineer. Autonomous agents replaced weeks of manual candidate research and shortlisting, compressing the process to minutes. 100,000+ lines of production code shipped across the platform.
+
+What I build for clients:
+→ AI agents that handle multi-step tasks without supervision
+→ RAG systems — upload your documents, ask questions, get accurate answers
+→ Backend APIs (FastAPI + PostgreSQL) — production-ready, secured, documented
+→ Workflow automation — connecting your tools so data moves without manual input
+→ Voice AI pipelines — speak, get structured output on the other end
+→ Healthcare AI — FHIR-compliant, PHI-aware, EHR-ready systems
+
+Stack: Python · FastAPI · PostgreSQL · OpenAI · Claude · Gemini · LangChain · AWS · Docker · Redis · n8n · Cursor · Claude Code
+
+I've also consulted for European clients for 2.5 years — translating complex AI architecture into plain business outcomes for founders and executives who don't speak code.
+
+BSc Computer Science, University of the People · Certified: Advanced RAG Agents · Network & Application Security
+
+If your team is drowning in manual workflows, I'll replace them with systems that run without supervision. I don't disappear after delivery — I hand over documented, maintainable systems your team can own.
+
+Let's talk.</div>
+</div>
+
+<div class="char-bar">
+  <div class="char-label">Overview length</div>
+  <div class="char-track"><div class="char-fill" id="fill"></div></div>
+  <div class="char-count"><span id="ccount">0</span> / 5,000</div>
+</div>
+
+<hr class="divider">
+
+<!-- PORTFOLIO -->
+<div class="section-label green" style="padding:0 0 10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase">Portfolio Case Studies <span class="badge badge-new" style="font-family:'JetBrains Mono',monospace">New Format</span></div>
+
+<div class="portfolio-grid">
+
+  <div class="portfolio-card">
+    <div class="portfolio-card-head">
+      <div class="portfolio-card-title">Sono Health — Clinical AI Documentation Platform</div>
+      <button class="copy-btn" onclick="cp(this, document.getElementById('p1').innerText)">copy</button>
+    </div>
+    <div class="portfolio-card-body" id="p1"><div class="field-row"><span class="field-key">Problem</span><span class="field-val">Healthcare professionals spending hours per patient writing clinical reports, researching diagnoses, and manually documenting findings — time taken away from patient care.</span></div>
+<div class="field-row"><span class="field-key">What I built</span><span class="field-val">An AI-first clinical documentation platform with a Voice-to-Narrative pipeline: clinicians speak their findings, the system transcribes, extracts structured measurements, searches peer-reviewed medical literature in real time, and generates a complete formatted report automatically.</span></div>
+<div class="field-row"><span class="field-key">Tech used</span><span class="field-val">FastAPI · Google Gemini · FHIR Level 1 · HL7 · PubMed API · Voice AI (Whisper) · LaTeX PDF generation · PostgreSQL · AWS</span></div>
+<div class="field-row"><span class="field-key">Result</span><span class="result-val">Clinical documentation reduced from hours to minutes per patient. Live in production.</span></div></div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="portfolio-card-head">
+      <div class="portfolio-card-title">UmukoziHR — Autonomous Recruiting Agent System</div>
+      <button class="copy-btn" onclick="cp(this, document.getElementById('p2').innerText)">copy</button>
+    </div>
+    <div class="portfolio-card-body" id="p2"><div class="field-row"><span class="field-key">Problem</span><span class="field-val">Recruiting teams spending weeks manually researching candidates, cross-referencing profiles, and building shortlists for each open role — a process that didn't scale.</span></div>
+<div class="field-row"><span class="field-key">What I built</span><span class="field-val">A multi-agent talent acquisition system: a SupervisorAgent delegates to a ResearchAgent (live web search), AggregationAgent (consolidates results), and AnalysisAgent (scores and ranks candidates by fit). The system runs without human input from search to shortlist.</span></div>
+<div class="field-row"><span class="field-key">Tech used</span><span class="field-val">FastAPI · Python · PostgreSQL · Redis · Multi-agent orchestration · AWS · Docker · Circuit breakers · LLM tool-calling</span></div>
+<div class="field-row"><span class="field-key">Result</span><span class="result-val">Candidate shortlisting reduced from weeks to minutes. 100K+ lines of production code shipped. Live platform.</span></div></div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="portfolio-card-head">
+      <div class="portfolio-card-title">Client Onboarding Automation — Healthcare Operations</div>
+      <button class="copy-btn" onclick="cp(this, document.getElementById('p3').innerText)">copy</button>
+    </div>
+    <div class="portfolio-card-body" id="p3"><div class="field-row"><span class="field-key">Problem</span><span class="field-val">A healthcare services business running a 12-step manual client onboarding process across Gmail, a clinical management platform, digital forms, and a project management CRM — costing the team hours per new client.</span></div>
+<div class="field-row"><span class="field-key">What I built</span><span class="field-val">An AI agent pipeline using n8n + Claude that monitors Gmail for inquiries, sends templated onboarding emails at the right trigger points, automates data entry into the clinical platform via browser automation, updates the CRM pipeline at each stage, and notifies the scheduling team when a client is ready.</span></div>
+<div class="field-row"><span class="field-key">Tech used</span><span class="field-val">n8n · Claude via AWS Bedrock · Playwright browser automation · Gmail API · Monday.com API · Jotform · HIPAA-aware logging</span></div>
+<div class="field-row"><span class="field-key">Result</span><span class="result-val">12-step manual process replaced by a fully automated pipeline. Staff time per onboarding reduced from hours to near-zero.</span></div></div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="portfolio-card-head">
+      <div class="portfolio-card-title">Spanish RAG Chatbot MVP — Document Q&A System</div>
+      <button class="copy-btn" onclick="cp(this, document.getElementById('p4').innerText)">copy</button>
+    </div>
+    <div class="portfolio-card-body" id="p4"><div class="field-row"><span class="field-key">Problem</span><span class="field-val">A business needed customers to get accurate answers from internal documents in Spanish — without a support team manually answering every query.</span></div>
+<div class="field-row"><span class="field-key">What I built</span><span class="field-val">A full RAG system: admin panel for uploading PDF, DOCX, CSV, TXT, and XLSX files, a parsing and chunking pipeline storing content in SQLite, and a Spanish-language chat interface where users ask questions and the AI responds using only the uploaded file content — clearly stating when information isn't available.</span></div>
+<div class="field-row"><span class="field-key">Tech used</span><span class="field-val">FastAPI · React · SQLite · OpenAI API · RAG pipeline · Spanish NLP · Admin auth panel</span></div>
+<div class="field-row"><span class="field-key">Result</span><span class="result-val">Delivered in 48 hours. Accurate document-grounded responses in Spanish with zero hallucination on out-of-scope questions.</span></div></div>
+  </div>
+
+  <div class="portfolio-card">
+    <div class="portfolio-card-head">
+      <div class="portfolio-card-title">AI Web Scraping & Matching Agent — UmukoziHR Pipeline</div>
+      <button class="copy-btn" onclick="cp(this, document.getElementById('p5').innerText)">copy</button>
+    </div>
+    <div class="portfolio-card-body" id="p5"><div class="field-row"><span class="field-key">Problem</span><span class="field-val">Recruiters manually searching multiple platforms to find and evaluate candidates — a repetitive, time-consuming process with inconsistent results.</span></div>
+<div class="field-row"><span class="field-key">What I built</span><span class="field-val">An autonomous web scraping and matching agent that searches multiple sources on a query, extracts structured profile data, scores candidates against role requirements using an LLM judge, and delivers a ranked shortlist — without human input at any stage.</span></div>
+<div class="field-row"><span class="field-key">Tech used</span><span class="field-val">Python · FastAPI · Playwright · LLM-as-judge scoring · PostgreSQL vector matching · Redis caching · AWS</span></div>
+<div class="field-row"><span class="field-key">Result</span><span class="result-val">Manual research time eliminated. Consistent, scored shortlists delivered in minutes per search.</span></div></div>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+<!-- PROPOSAL STRATEGY -->
+<div class="section-label green" style="padding:0 0 10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase">Updated Proposal Strategy — Per Upwork Feedback</div>
+
+<div class="proposal-tip">
+  <div class="proposal-tip-label">Target: AI-aware clients only</div>
+  <div class="proposal-tip-text">Look for job posts that use words like "automation", "AI agent", "workflow", "n8n", "ChatGPT integration", "RAG", "LLM". These clients already understand the value — you don't have to educate them. Skip generic "Python developer needed" posts unless the budget is strong and the problem is clear.</div>
+</div>
+
+<div class="proposal-tip">
+  <div class="proposal-tip-label">Connect to their workflow, not your stack</div>
+  <div class="proposal-tip-text">Instead of: "I have experience with LangChain, FastAPI, and multi-agent systems."<br><br>Write: "Your team is manually copying form data into your CRM every time a lead comes in. I'll build an agent that does that automatically the moment the form is submitted — no human touch required."<br><br>Same skills. The second version is what the client actually buys.</div>
+</div>
+
+<div class="proposal-tip">
+  <div class="proposal-tip-label">Proof order in every proposal</div>
+  <div class="proposal-tip-text">1. Their specific problem named in line 1<br>2. How you solve it (one sentence)<br>3. One proof point (Sono Health or UmukoziHR metric)<br>4. What you'd do for them specifically<br>5. CTA — one specific question or Zoom ask<br><br>Never list your stack before naming their problem.</div>
+</div>
+
+<button class="copy-all" id="copyAllBtn" onclick="copyAll()">Copy Full Overview</button>
+<div class="tip" id="tip"></div>
+
+</div>
+
+<script>
+function cp(btn,text){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='✓ copied';btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent='copy';btn.classList.remove('ok')},2000);
+  });
+}
+function updateCount(){
+  const txt=document.getElementById('overview').innerText;
+  const len=txt.length;
+  document.getElementById('ccount').textContent=len;
+  const pct=Math.min((len/5000)*100,100);
+  document.getElementById('fill').style.width=pct+'%';
+  document.getElementById('fill').style.background=pct>90?'#f59e0b':'#00d4a0';
+  document.getElementById('tip').textContent=len<=5000?`${5000-len} characters remaining`:`⚠ ${len-5000} over limit`;
+}
+function copyAll(){
+  const text=document.getElementById('overview').innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById('copyAllBtn');
+    btn.textContent='✓ Copied!';btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent='Copy Full Overview';btn.classList.remove('ok')},2500);
+  });
+}
+updateCount();
+</script>
+</body>
+</html>

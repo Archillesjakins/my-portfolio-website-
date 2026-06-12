@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { blogPosts } from '@/data/blog';
 
 const Blog = () => {
   const { toast } = useToast();
@@ -31,35 +32,7 @@ const Blog = () => {
     }, 2000); // 2 second delay
   };
 
-  const blogPosts = [
-    {
-      title: "The Future of Large Language Models in Enterprise Applications",
-      excerpt: "Exploring how LLMs are revolutionizing business processes and the challenges of implementing them at scale.",
-      date: "2024-01-15",
-      readTime: "8 min read",
-      category: "AI Engineering",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-      tags: ["LLM", "Enterprise", "AI"]
-    },
-    {
-      title: "Building Scalable Data Pipelines with Modern Python",
-      excerpt: "A comprehensive guide to creating robust data processing workflows that can handle millions of records.",
-      date: "2024-01-08",
-      readTime: "12 min read",
-      category: "Data Science",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      tags: ["Python", "Data Engineering", "ETL"]
-    },
-    {
-      title: "React Performance Optimization: From Good to Great",
-      excerpt: "Advanced techniques for optimizing React applications, including code splitting, memoization, and state management.",
-      date: "2024-01-01",
-      readTime: "10 min read",
-      category: "Web Development",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop",
-      tags: ["React", "Performance", "JavaScript"]
-    }
-  ];
+
 
   return (
     <section className="py-20 bg-gray-900">
@@ -117,7 +90,11 @@ const Blog = () => {
                   ))}
                 </div>
                 
-                <Button variant="outline" className="w-full bg-transparent border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-500 group-hover:border-purple-500 group-hover:text-purple-400">
+                <Button 
+                  variant="outline" 
+                  className="w-full bg-transparent border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-500 group-hover:border-purple-500 group-hover:text-purple-400"
+                  onClick={() => window.open(post.link, '_blank')}
+                >
                   <BookOpen className="mr-2 h-4 w-4" />
                   Read Article
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />

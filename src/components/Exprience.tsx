@@ -9,9 +9,9 @@ const Experience = () => {
       period: "2023 - Present",
       description: "Providing technical advisory and solution design for AI/ML projects, including feasibility studies, requirement gathering, and stakeholder communication.",
       achievements: [
-        "Designed and implemented AI-driven solutions for multiple clients",
-        "Specialized in LLM applications and recommendation systems",
-        "Delivered end-to-end data science projects from conception to deployment"
+        "Architected and deployed Sono Health (clinical AI documentation platform) and Sono-Agent (conversational patient intake workflow).",
+        "Engineered the multi-agent recruiting workflow system UmukoziHR, deploying the production portal at recruit.umukozihr.com.",
+        "Built the Dwello real estate investment analysis portal, integrating real-time cash flow and Cap Rate modeling."
       ]
     },
     {
@@ -19,17 +19,14 @@ const Experience = () => {
         company: "Ideation Axis (Internship)",
         location: "Remote",
         period: "2024 - Present",
-        description: "Building Robust Backend system and Data Pipline, optmizing database query for larger consumers",
+        description: "Building robust backend systems and data pipelines, optimizing database queries for larger consumers.",
         achievements: [
           "Developed and optimized AI models for real-time farm monitoring and pest detection.",
           "Designed interactive chatbot applications for intelligent user engagement.",
           "Implemented secure authentication systems and database management using PostgreSQL and SQLite.",
-          "Advised on best practices for AI deployment and ethical considerations in model development.",
-          "Specialized in LLM applications and recommendation systems",
-         "Delivered end-to-end data science projects from conception to deployment"
+          "Advised on best practices for AI deployment and ethical considerations in model development."
         ]
       },
-
     {
       title: "Full-Stack Developer",
       company: "Independent Projects",
@@ -37,9 +34,9 @@ const Experience = () => {
       period: "2022 - Present",
       description: "Developed comprehensive web applications using modern frameworks and technologies, focusing on user experience and scalable architecture.",
       achievements: [
-        "Built multiple full-stack applications using React, Flask, and Django",
-        "Implemented database solutions with SQLite, PostgreSQL, and MySQL",
-        "Integrated third-party APIs and services for enhanced functionality"
+        "Built and launched iUnlockSIM, an automated carrier unlocking e-commerce site with Supabase and Stripe integration.",
+        "Developed News AI, an autonomous real-time news summarizer and aggregator with semantic clustering.",
+        "Implemented secure API integrations and responsive layouts using React, Vite, and Next.js."
       ]
     }
   ];

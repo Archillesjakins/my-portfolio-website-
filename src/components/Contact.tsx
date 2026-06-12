@@ -6,16 +6,7 @@ import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS with environment variable
-const publicKey = process.env.VITE_EMAILJS_PUBLIC_KEY;
-const serviceId = process.env.VITE_EMAILJS_SERVICE_ID;
-const templateId = process.env.VITE_EMAILJS_TEMPLATE_ID;
-
-if (!publicKey || !serviceId || !templateId) {
-  console.error('EmailJS environment variables are not properly configured');
-}
-
-emailjs.init(publicKey);
+// Environment variables handled inside component
 
 const Contact = () => {
   const { toast } = useToast();
@@ -26,6 +17,19 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS securely
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+  useEffect(() => {
+    if (publicKey) {
+      emailjs.init(publicKey);
+    } else {
+      console.error('EmailJS environment variables are not properly configured');
+    }
+  }, [publicKey]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

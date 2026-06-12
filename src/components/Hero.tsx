@@ -97,26 +97,28 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
-          {/* Glowing avatar placeholder */}
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-emerald-400 p-1">
-            <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-4xl font-bold">
-              AJ
-            </div>
+          {/* Glowing avatar with image */}
+          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-emerald-400 p-1 shadow-lg shadow-purple-500/25 relative overflow-hidden group">
+            <img 
+              src="/studio_background_portrait.jpg" 
+              alt="Archilles Jacob" 
+              className="w-full h-full rounded-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+            />
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-            Archilles Jacob
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+            AI Automation Engineer
           </h1>
           <div className="flex justify-center items-center space-x-4 mb-6">
             <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1 max-w-32"></div>
-            <p className="text-xl md:text-2xl text-gray-300 font-light">
-              AI Engineer • Data Scientist • Full-Stack Developer
+            <p className="text-lg md:text-xl text-gray-300 font-light tracking-wide">
+              RAG, AI Agents & FastAPI Backends
             </p>
             <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1 max-w-32"></div>
           </div>
           <p className="text-lg mb-12 text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Crafting intelligent solutions that bridge the gap between cutting-edge AI research and real-world applications. 
-            Transforming complex data into actionable insights and building scalable systems that matter.
+            I build AI agents, RAG systems, and backend automation that reduce manual work and connect cleanly to your existing tools. 
+            You get working automation, not a proof of concept.
           </p>
           
           <div className="flex justify-center space-x-4 mb-12 flex-wrap gap-4">
