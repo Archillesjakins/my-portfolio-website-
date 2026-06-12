@@ -10,6 +10,7 @@ const Blog = lazy(() => import('@/components/Blog'));
 const Analytics = lazy(() => import('@/components/Analytics'));
 const FileStorage = lazy(() => import('@/components/FileStorage'));
 const Contact = lazy(() => import('@/components/Contact'));
+const ResumeChatbot = lazy(() => import('@/components/ResumeChatbot'));
 
 const Index = () => {
   return (
@@ -47,6 +48,10 @@ const Index = () => {
           </section>
         </Suspense>
       </main>
+      
+      <Suspense fallback={null}>
+        <ResumeChatbot />
+      </Suspense>
       
       {/* Footer */}
       <footer className="bg-black border-t border-gray-800 text-white py-12">
