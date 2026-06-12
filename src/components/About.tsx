@@ -139,12 +139,12 @@ const About = () => {
                 <div>
                   <h4 className="text-white font-semibold mb-3">What I build for clients:</h4>
                   <ul className="space-y-2 list-none">
-                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> AI agents that handle multi-step tasks without supervision</li>
-                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> RAG systems — upload your documents, ask questions, get accurate answers</li>
-                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Backend APIs (FastAPI + PostgreSQL) — production-ready, secured, documented</li>
-                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Workflow automation — connecting your tools so data moves without manual input</li>
-                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Voice AI pipelines — speak, get structured output on the other end</li>
-                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> Healthcare AI — FHIR-compliant, PHI-aware, EHR-ready systems</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> **Custom AI Chatbots & Agents** to handle multi-step business tasks without supervision</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> **Smart Document Search (RAG)** — ask questions and get instant answers from your PDFs and files</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> **Custom Web Apps & Databases** built securely to scale with your business (FastAPI + PostgreSQL)</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> **App Integrations** — linking Monday.com, Gmail, Stripe, and CRM tools to sync data automatically</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> **Voice-to-Text Automation** — speak naturally and get structured records and files on the other end</li>
+                    <li className="flex items-start"><span className="text-emerald-400 mr-2">→</span> **Secure Healthcare Systems** — patient onboarding flows and clinical report generators</li>
                   </ul>
                 </div>
 

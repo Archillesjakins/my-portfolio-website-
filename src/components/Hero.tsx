@@ -113,7 +113,7 @@ const Hero = () => {
           <div className="flex justify-center items-center space-x-4 mb-6">
             <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1 max-w-32"></div>
             <p className="text-lg md:text-xl text-gray-300 font-light tracking-wide">
-              RAG, AI Agents & FastAPI Backends
+              Building AI Agents, Smart Databases & Custom App Integrations
             </p>
             <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1 max-w-32"></div>
           </div>
