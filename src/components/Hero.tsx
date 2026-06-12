@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, ArrowDown, Download, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import HeroAgentConsole from './HeroAgentConsole';
 
 const Hero = () => {
   const { toast } = useToast();
@@ -149,6 +150,11 @@ const Hero = () => {
               Resume
             </Button>
           </div>
+          
+          {/* Interactive Agent Playground */}
+          <HeroAgentConsole />
+          
+          <div className="h-10"></div>
           
           {/* Analytics Display */}
           <div className="flex justify-center items-center space-x-8 mb-12 text-sm text-gray-400">
