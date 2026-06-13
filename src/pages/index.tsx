@@ -1,6 +1,7 @@
 import { Suspense, lazy, useState, useEffect } from 'react';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
+import TrustBar from '@/components/TrustBar';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
 const About = lazy(() => import('@/components/About'));
@@ -12,6 +13,8 @@ const Analytics = lazy(() => import('@/components/Analytics'));
 const FileStorage = lazy(() => import('@/components/FileStorage'));
 const Contact = lazy(() => import('@/components/Contact'));
 const ResumeChatbot = lazy(() => import('@/components/ResumeChatbot'));
+const WhatISolve = lazy(() => import('@/components/WhatISolve'));
+const HowItWorks = lazy(() => import('@/components/HowItWorks'));
 
 const Index = () => {
   const [profileTab, setProfileTab] = useState('about');
@@ -42,7 +45,22 @@ const Index = () => {
         <section id="home">
           <Hero />
         </section>
-        
+
+        {/* Trust Bar */}
+        <TrustBar />
+
+        {/* Who Is This For — Industry Solutions */}
+        <section id="solutions">
+          <Suspense fallback={<div className="py-20 text-center text-gray-500">Loading...</div>}>
+            <WhatISolve />
+          </Suspense>
+        </section>
+
+        {/* How I Work With You */}
+        <Suspense fallback={<div className="py-10" />}>
+          <HowItWorks />
+        </Suspense>
+
         {/* Projects Section - Always expanded as it is the core showcase */}
         <section id="projects">
           <Suspense fallback={<div className="py-20 text-center text-gray-500">Loading projects...</div>}>
@@ -153,32 +171,34 @@ const Index = () => {
                 Archilles Jacob
               </h3>
               <p className="text-gray-400 leading-relaxed max-w-md">
-                Transforming ideas into intelligent solutions through cutting-edge AI, 
-                machine learning, and full-stack development.
+                Building AI-powered businesses across Africa & Europe.
+                Custom agents, workflow automation, and full-stack systems — no tech team needed.
               </p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#solutions" className="hover:text-white transition-colors">Who It's For</a></li>
                 <li><a href="#projects" className="hover:text-white transition-colors">Projects</a></li>
                 <li><a href="#blog" className="hover:text-white transition-colors">Blog</a></li>
                 <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-white mb-4">Services</h4>
+              <h4 className="font-semibold text-white mb-4">What I Build</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>AI Engineering</li>
-                <li>Data Science</li>
-                <li>Full-Stack Development</li>
-                <li>Technical Consulting</li>
+                <li>AI Agents & Chatbots</li>
+                <li>Workflow Automation</li>
+                <li>Clinical AI Systems</li>
+                <li>Full-Stack Web Apps</li>
+                <li>Business Intelligence</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              © 2024 Archilles Jacob. Built with React, TypeScript, and Tailwind CSS.
+              © 2026 Archilles Jacob · Built with React, TypeScript & Tailwind CSS · 🇬🇭 Ghana
             </p>
           </div>
         </div>

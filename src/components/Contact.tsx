@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
-
-// Environment variables handled inside component
 
 const Contact = () => {
   const { toast } = useToast();
@@ -18,19 +15,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize EmailJS securely
-  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-
-  useEffect(() => {
-    if (publicKey) {
-      emailjs.init(publicKey);
-    } else {
-      console.error('EmailJS environment variables are not properly configured');
-    }
-  }, [publicKey]);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -39,7 +23,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -55,57 +39,16 @@ const Contact = () => {
         throw new Error('Please enter a valid email address');
       }
 
-      // Validate environment variables
-      if (!publicKey || !serviceId || !templateId) {
-        throw new Error('Email service is not properly configured');
-      }
-
-      // Show preparing toast
-      toast({
-        title: "Sending Message",
-        description: "Please wait while we send your message...",
-        duration: 3000,
-        className: "bg-gradient-to-r from-gray-900 to-black border border-gray-800",
-        style: {
-          background: "linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.95))",
-          backdropFilter: "blur(10px)",
-          border: "1px solid rgba(75, 85, 99, 0.3)",
-          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-          color: "#ffffff",
-        },
-      });
-
-      // Prepare email template parameters
-      const templateParams = {
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        time: new Date().toLocaleString(),
-        to_name: "Archilles Jacob",
-        to_email: "jakingsarchly@gmail.com"
-      };
-
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams
-      );
-
-      if (response.status !== 200) {
-        throw new Error('Failed to send message. Please try again.');
-      }
-
-      // Reset form after successful sending
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setIsSubmitting(false);
+      // Compose WhatsApp URL
+      const text = `Hello Archilles,\n\nMy name is *${formData.name}* (${formData.email}).\n\n*Subject*: ${formData.subject}\n\n*Message*:\n${formData.message}`;
+      const encodedText = encodeURIComponent(text);
+      const whatsappUrl = `https://wa.me/233248802586?text=${encodedText}`;
 
       // Show success toast
       toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-        duration: 5000,
+        title: "Redirecting to WhatsApp...",
+        description: "Opening WhatsApp chat window...",
+        duration: 3000,
         className: "bg-gradient-to-r from-emerald-900 to-black border border-emerald-800",
         style: {
           background: "linear-gradient(to right, rgba(6, 78, 59, 0.95), rgba(0, 0, 0, 0.95))",
@@ -116,16 +59,19 @@ const Contact = () => {
         },
       });
 
+      // Open WhatsApp in a new window/tab
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        setIsSubmitting(false);
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 1000);
+
     } catch (error) {
-      console.error('Email sending error:', error);
-      
-      // Show error toast notification with more specific message
       toast({
         title: "Error",
-        description: error instanceof Error 
-          ? error.message 
-          : "Failed to send message. Please check your connection and try again.",
-        duration: 5000,
+        description: error instanceof Error ? error.message : "An error occurred.",
+        duration: 3000,
         className: "bg-gradient-to-r from-red-900 to-black border border-red-800",
         style: {
           background: "linear-gradient(to right, rgba(127, 29, 29, 0.95), rgba(0, 0, 0, 0.95))",
@@ -140,80 +86,98 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-slate-900 text-white">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-black text-white border-t border-zinc-900 relative overflow-hidden">
+      {/* Subtle ambient background glow */}
+      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-blue-400 mb-4 border border-blue-500/20 bg-blue-500/5 rounded-full px-4 py-1.5">
+            Contact
+          </span>
           <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
-          <p className="text-xl text-slate-400">Ready to bring your AI and software projects to life</p>
+          <p className="text-xl text-gray-400">Ready to bring your AI and software projects to life</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col justify-center">
             <div>
               <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-              <p className="text-slate-400 mb-8 leading-relaxed">
+              <p className="text-gray-400 mb-8 leading-relaxed">
                 I'm always excited to discuss new opportunities, innovative projects, and potential collaborations. 
-                Whether you need AI solutions, data science expertise, or full-stack development, let's connect.
+                Whether you need AI solutions, workflow automation, or full-stack systems, let's connect.
               </p>
             </div>
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                  <Mail className="h-6 w-6" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center shrink-0">
+                  <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">Email</p>
-                  <p className="text-slate-400">jakingsarchly@gmail.com</p>
+                  <p className="font-semibold text-white">Email</p>
+                  <p className="text-gray-400">jakingsarchly@gmail.com</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-6 w-6" />
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-emerald-500 rounded-lg flex items-center justify-center shrink-0">
+                  <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">Location</p>
-                  <p className="text-slate-400">Accra, Greater Accra Region, Ghana</p>
+                  <p className="font-semibold text-white">Location</p>
+                  <p className="text-gray-400">Accra, Greater Accra Region, Ghana</p>
                 </div>
               </div>
               
-              <div className="flex space-x-4 mt-8">
-                <a href="https://github.com/Archillesjakins" className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
-                  <Github className="h-6 w-6" />
+              <div className="flex space-x-4 pt-4">
+                <a 
+                  href="https://github.com/Archillesjakins" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-12 h-12 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:bg-zinc-800 hover:border-zinc-700 transition-all text-gray-400 hover:text-white"
+                >
+                  <Github className="h-5 w-5" />
                 </a>
-                <a href="https://linkedin.com/in/archilles-jacob-705695169" className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
-                  <Linkedin className="h-6 w-6" />
+                <a 
+                  href="https://linkedin.com/in/archilles-jacob-705695169" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-12 h-12 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:bg-zinc-800 hover:border-zinc-700 transition-all text-gray-400 hover:text-white"
+                >
+                  <Linkedin className="h-5 w-5" />
                 </a>
               </div>
             </div>
           </div>
           
           {/* Contact Form */}
-          <div className="bg-slate-800 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-zinc-900/50 border border-zinc-800/80 backdrop-blur-sm p-8 rounded-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-purple-500/5 blur-[80px] -mr-16 -mt-16 pointer-events-none" />
+            <h3 className="text-2xl font-bold mb-6 text-white relative z-10">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">Name</label>
                   <Input 
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="bg-slate-700 border-slate-600 text-white" 
+                    className="bg-zinc-950 border-zinc-800 text-white placeholder-gray-600 focus-visible:ring-purple-500" 
                     placeholder="Your name" 
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
                   <Input 
                     type="email" 
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="bg-slate-700 border-slate-600 text-white" 
+                    className="bg-zinc-950 border-zinc-800 text-white placeholder-gray-600 focus-visible:ring-purple-500" 
                     placeholder="your.email@example.com" 
                     required
                   />
@@ -221,24 +185,24 @@ const Contact = () => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2">Subject</label>
+                <label className="block text-sm font-medium mb-2 text-gray-300">Subject</label>
                 <Input 
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="bg-slate-700 border-slate-600 text-white" 
+                  className="bg-zinc-950 border-zinc-800 text-white placeholder-gray-600 focus-visible:ring-purple-500" 
                   placeholder="Project inquiry" 
                   required
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
+                <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
                 <Textarea 
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="bg-slate-700 border-slate-600 text-white min-h-32" 
+                  className="bg-zinc-950 border-zinc-800 text-white placeholder-gray-600 focus-visible:ring-purple-500 min-h-32" 
                   placeholder="Tell me about your project..."
                   required
                 />
@@ -247,10 +211,10 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full h-11"
               >
                 <Send className="w-4 h-4 mr-2" />
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Opening WhatsApp...' : 'Send Message'}
               </Button>
             </form>
           </div>

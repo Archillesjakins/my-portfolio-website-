@@ -1,10 +1,32 @@
-import { Github, Linkedin, Mail, ArrowDown, Download, BarChart3 } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import HeroAgentConsole from './HeroAgentConsole';
+import { useState, useEffect } from 'react';
+
+const rotatingHeadlines = [
+  'What if your business ran itself\nwhile you slept?',
+  'I build the AI that handles\nwhat your team hates doing.',
+  'What if you could double revenue\nwithout hiring more staff?',
+  'Want to start a company but dont have a team?',
+  'Stop stressing your staff to do\nwork a machine can do for you.',
+];
 
 const Hero = () => {
   const { toast } = useToast();
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setHeadlineIndex(prev => (prev + 1) % rotatingHeadlines.length);
+        setFade(true);
+      }, 400);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleGithubClick = () => {
     // Open GitHub profile in a new tab
@@ -107,19 +129,32 @@ const Hero = () => {
             />
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-            AI Automation Engineer
-          </h1>
-          <div className="flex justify-center items-center space-x-4 mb-6">
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1 max-w-32"></div>
-            <p className="text-lg md:text-xl text-gray-300 font-light tracking-wide">
-              Building AI Agents, Smart Databases & Custom App Integrations
-            </p>
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent flex-1 max-w-32"></div>
+          {/* Rotating headline */}
+          <div className="min-h-[120px] md:min-h-[144px] flex items-center justify-center mb-4">
+            <h1
+              className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent leading-tight whitespace-pre-line"
+              style={{ transition: 'opacity 0.4s ease, transform 0.4s ease', opacity: fade ? 1 : 0, transform: fade ? 'translateY(0)' : 'translateY(8px)' }}
+            >
+              {rotatingHeadlines[headlineIndex]}
+            </h1>
           </div>
-          <p className="text-lg mb-12 text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            I build AI agents, RAG systems, and backend automation that reduce manual work and connect cleanly to your existing tools. 
-            You get working automation, not a proof of concept.
+
+          {/* Headline dots */}
+          <div className="flex justify-center gap-1.5 mb-6">
+            {rotatingHeadlines.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setFade(false); setTimeout(() => { setHeadlineIndex(i); setFade(true); }, 300); }}
+                className={`rounded-full transition-all duration-300 ${
+                  i === headlineIndex ? 'w-5 h-1.5 bg-purple-400' : 'w-1.5 h-1.5 bg-gray-600 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          <p className="text-lg mb-10 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Custom AI systems and workflow automation for businesses across Africa & Europe.
+            No tech team needed. Up and running in days.
           </p>
           
           <div className="flex justify-center space-x-4 mb-12 flex-wrap gap-4">
@@ -156,16 +191,26 @@ const Hero = () => {
           
           <div className="h-10"></div>
           
-          {/* Analytics Display */}
-          <div className="flex justify-center items-center space-x-8 mb-12 text-sm text-gray-400">
-            <div className="flex items-center space-x-2">
-              <BarChart3 className="h-4 w-4 text-blue-400" />
-              <span>1,247 Profile Views</span>
+          {/* Outcome Stats */}
+          <div className="flex justify-center items-center gap-6 mb-12 text-sm flex-wrap">
+            <div className="flex flex-col items-center">
+              <span className="text-white font-bold text-lg">Hours → 5 min</span>
+              <span className="text-gray-500 text-xs">Clinical report writing</span>
             </div>
-            <div className="w-px h-4 bg-gray-600"></div>
+            <div className="w-px h-8 bg-gray-700 hidden sm:block" />
+            <div className="flex flex-col items-center">
+              <span className="text-white font-bold text-lg">Weeks → Minutes</span>
+              <span className="text-gray-500 text-xs">Candidate shortlisting</span>
+            </div>
+            <div className="w-px h-8 bg-gray-700 hidden sm:block" />
+            <div className="flex flex-col items-center">
+              <span className="text-white font-bold text-lg">12 steps → 0</span>
+              <span className="text-gray-500 text-xs">Manual onboarding work</span>
+            </div>
+            <div className="w-px h-8 bg-gray-700 hidden sm:block" />
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-              <span>Available for Projects</span>
+              <span className="text-gray-400">Available for projects</span>
             </div>
           </div>
           
