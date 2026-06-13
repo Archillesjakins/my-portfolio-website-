@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, CheckCircle, Zap, Clock, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Clock, ArrowUpRight, ArrowDown } from 'lucide-react';
 
 interface WorkflowStep {
   label: string;
@@ -226,18 +226,20 @@ const WorkflowDiagram = ({ steps, accentColor }: { steps: WorkflowStep[]; accent
   };
 
   return (
-    <div className="flex items-center justify-between gap-2 py-4">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 py-4">
       {steps.map((step, i) => (
-        <div key={i} className="flex items-center gap-2 flex-1">
-          <div className={`flex-1 rounded-xl border p-3 text-center ${getNodeClass(step.type)} transition-all duration-300`}>
+        <div key={i} className="flex flex-col md:flex-row items-center gap-4 md:gap-2 w-full md:flex-1">
+          <div className={`w-full md:flex-1 rounded-xl border p-4 md:p-3 text-center ${getNodeClass(step.type)} transition-all duration-300`}>
             <div className={`w-2 h-2 rounded-full mx-auto mb-2 ${getDotClass(step.type)} animate-pulse`} />
             <p className="text-white text-xs font-semibold leading-tight">{step.label}</p>
             {step.sub && <p className="text-gray-400 text-[10px] mt-1 leading-tight">{step.sub}</p>}
           </div>
           {i < steps.length - 1 && (
-            <div className="shrink-0 flex flex-col items-center gap-0.5">
-              <div className="w-4 h-px bg-zinc-800" />
-              <ArrowRight className="h-3 w-3 text-zinc-600 -mt-1" />
+            <div className="shrink-0 flex md:flex-col items-center gap-1 my-1 md:my-0">
+              <div className="w-px h-4 bg-zinc-800 md:hidden" />
+              <ArrowDown className="h-4 w-4 text-zinc-600 md:hidden" />
+              <div className="w-4 h-px bg-zinc-800 hidden md:block" />
+              <ArrowRight className="h-3 w-3 text-zinc-600 -mt-1 hidden md:block" />
             </div>
           )}
         </div>
@@ -263,29 +265,29 @@ const WhatISolve = () => {
       <div className="container mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-10">
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-purple-400 mb-4 border border-purple-500/20 bg-purple-500/5 rounded-full px-4 py-1.5">
             Solutions
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
             Don't know what you can do
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
               with AI or a workflow?
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
             Select an industry below to see simple, real-world examples of how automation works.
           </p>
         </div>
 
-        {/* Industry Tiles Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mb-10">
+        {/* Industry Tiles Grid / Carousel */}
+        <div className="flex overflow-x-auto pb-4 mb-10 gap-2 snap-x md:grid md:grid-cols-5 md:overflow-x-visible md:pb-0 scrollbar-none">
           {industries.map((ind) => (
             <button
               key={ind.id}
               onClick={() => setActiveId(ind.id)}
-              className={`group flex flex-col items-center gap-2 p-3 rounded-xl border text-center transition-all duration-300 cursor-pointer ${
+              className={`snap-start shrink-0 w-[140px] md:w-auto flex flex-col items-center gap-2 p-3 rounded-xl border text-center transition-all duration-300 cursor-pointer ${
                 activeId === ind.id
                   ? `border-white/20 bg-white/5 scale-[1.03] shadow-lg`
                   : 'border-zinc-800 bg-zinc-950/50 hover:border-zinc-600 hover:bg-zinc-900/50'
@@ -305,7 +307,7 @@ const WhatISolve = () => {
         {/* Active Industry Detail Panel */}
         <div
           key={active.id}
-          className="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 md:p-10 transition-all duration-500 overflow-hidden backdrop-blur-md"
+          className="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-8 md:p-10 transition-all duration-500 overflow-hidden backdrop-blur-md animate-fade-in"
           style={{ animation: 'fadeIn 0.3s ease both' }}
         >
           {/* Subtle background glow */}
@@ -319,17 +321,21 @@ const WhatISolve = () => {
 
             {/* Left: Problem & Solution */}
             <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-4xl">{active.emoji}</span>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-0.5">
-                    {active.tagline}
-                  </p>
-                  <h3 className="text-2xl font-bold text-white">{active.name}</h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-4xl shrink-0">{active.emoji}</span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-0.5">
+                      {active.tagline}
+                    </p>
+                    <h3 className="text-2xl font-bold text-white leading-tight">{active.name}</h3>
+                  </div>
                 </div>
-                <span className={`ml-auto text-xs font-semibold rounded-full px-3 py-1 whitespace-nowrap ${typeColors[active.automationType]}`}>
-                  {active.automationType}
-                </span>
+                <div className="self-start sm:self-center">
+                  <span className={`inline-block text-xs font-semibold rounded-full px-3 py-1 whitespace-nowrap ${typeColors[active.automationType]}`}>
+                    {active.automationType}
+                  </span>
+                </div>
               </div>
 
               {/* Pain Point */}
@@ -349,32 +355,32 @@ const WhatISolve = () => {
               </div>
 
               {/* Result metric */}
-              <div className="flex items-center gap-4">
-                <div className="bg-emerald-950/60 border border-emerald-800/40 rounded-xl px-5 py-3 text-center">
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="bg-emerald-950/60 border border-emerald-800/40 rounded-xl px-5 py-3 text-center min-w-[140px]">
                   <p className="text-emerald-400 font-bold text-xl">{active.resultMetric}</p>
                   <p className="text-gray-400 text-xs mt-0.5">{active.result}</p>
                 </div>
                 <div className="flex items-center gap-2 text-emerald-400">
-                  <CheckCircle className="h-5 w-5" />
+                  <CheckCircle className="h-5 w-5 shrink-0" />
                   <span className="text-sm font-medium text-gray-300">Delivered and documented</span>
                 </div>
               </div>
 
               {/* CTA */}
-              <div className="flex items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 {active.cta && active.ctaUrl ? (
                   <a
                     href={active.ctaUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold rounded-full px-5 py-2.5 hover:bg-gray-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-semibold rounded-full px-5 py-2.5 hover:bg-gray-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-auto"
                   >
                     {active.cta} <ArrowUpRight className="h-4 w-4" />
                   </a>
                 ) : null}
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 border border-white/20 text-white text-sm font-semibold rounded-full px-5 py-2.5 hover:bg-white/10 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-sm font-semibold rounded-full px-5 py-2.5 hover:bg-white/10 transition-all duration-200 w-full sm:w-auto"
                 >
                   Build this for me <ArrowRight className="h-4 w-4" />
                 </a>
@@ -415,7 +421,7 @@ const WhatISolve = () => {
               </div>
 
               {/* Type legend */}
-              <div className="flex items-center gap-4 text-xs text-gray-500">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-purple-400" />
                   AI Agent = autonomous decisions
@@ -445,6 +451,13 @@ const WhatISolve = () => {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(8px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        .scrollbar-none::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-none {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </section>
