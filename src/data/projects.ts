@@ -25,7 +25,7 @@ export const projects: Project[] = [
     gradient: "from-blue-500 to-cyan-600",
     icon: Globe,
     image: "/projects/sonohealth.png",
-    demoUrl: "https://sonohealth.app",
+    demoUrl: "https://sonohealth.vercel.app",
   },
   {
     title: "Sono-Agent — Clinical Intake & Onboarding Agent",

@@ -112,23 +112,23 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-emerald-500/5 rounded-full blur-2xl animate-pulse delay-500"></div>
       </div>
-      
+
       {/* Grid pattern overlay */}
       <div className="absolute inset-0" style={{
         backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.02\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"
       }}></div>
-      
+
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
           {/* Glowing avatar with image */}
           <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-emerald-400 p-1 shadow-lg shadow-purple-500/25 relative overflow-hidden group">
-            <img 
-              src="/studio_background_portrait.jpg" 
-              alt="Archilles Jacob" 
+            <img
+              src="/studio_background_portrait.jpg"
+              alt="Archilles Jacob"
               className="w-full h-full rounded-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
             />
           </div>
-          
+
           {/* Rotating headline */}
           <div className="min-h-[120px] md:min-h-[144px] flex items-center justify-center mb-4">
             <h1
@@ -145,9 +145,8 @@ const Hero = () => {
               <button
                 key={i}
                 onClick={() => { setFade(false); setTimeout(() => { setHeadlineIndex(i); setFade(true); }, 300); }}
-                className={`rounded-full transition-all duration-300 ${
-                  i === headlineIndex ? 'w-5 h-1.5 bg-purple-400' : 'w-1.5 h-1.5 bg-gray-600 hover:bg-gray-400'
-                }`}
+                className={`rounded-full transition-all duration-300 ${i === headlineIndex ? 'w-5 h-1.5 bg-purple-400' : 'w-1.5 h-1.5 bg-gray-600 hover:bg-gray-400'
+                  }`}
               />
             ))}
           </div>
@@ -156,28 +155,28 @@ const Hero = () => {
             Custom AI systems and workflow automation for businesses across Africa & Europe.
             No tech team needed. Up and running in days.
           </p>
-          
+
           <div className="flex justify-center space-x-4 mb-12 flex-wrap gap-4">
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="bg-transparent border-gray-600 text-white hover:bg-gray-800 hover:border-gray-400 transition-all duration-300 backdrop-blur-sm"
               onClick={handleEmailClick}
             >
               <Mail className="mr-2 h-5 w-5" />
               Get In Touch
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
               onClick={handleGithubClick}
             >
               <Github className="mr-2 h-5 w-5" />
               View Projects
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="bg-transparent border-emerald-600 text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all duration-300"
               onClick={handleResumeClick}
             >
@@ -185,12 +184,12 @@ const Hero = () => {
               Resume
             </Button>
           </div>
-          
+
           {/* Interactive Agent Playground */}
           <HeroAgentConsole />
-          
+
           <div className="h-10"></div>
-          
+
           {/* Outcome Stats */}
           <div className="flex justify-center items-center gap-6 mb-12 text-sm flex-wrap">
             <div className="flex flex-col items-center">
@@ -213,21 +212,21 @@ const Hero = () => {
               <span className="text-gray-400">Available for projects</span>
             </div>
           </div>
-          
+
           <div className="flex justify-center space-x-8 text-gray-400">
-            <button 
+            <button
               onClick={handleGithubClick}
               className="hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 p-2 rounded-full hover:bg-gray-800/50"
             >
               <Github className="h-7 w-7" />
             </button>
-            <button 
+            <button
               onClick={handleLinkedInClick}
               className="hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 p-2 rounded-full hover:bg-gray-800/50"
             >
               <Linkedin className="h-7 w-7" />
             </button>
-            <button 
+            <button
               onClick={handleEmailClick}
               className="hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/25 p-2 rounded-full hover:bg-gray-800/50"
             >
@@ -235,7 +234,7 @@ const Hero = () => {
             </button>
           </div>
         </div>
-        
+
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <ArrowDown className="h-6 w-6 text-gray-400" />
         </div>

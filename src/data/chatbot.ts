@@ -46,7 +46,7 @@ export const chatbotKnowledge: ChatResponse[] = [
   },
   {
     keywords: ["project", "portfolio", "built", "work", "examples", "live", "demos", "showcase"],
-    reply: "Here are my active production projects:\n\n1. **Sono Health**: Clinical AI documentation platform. Dictate naturally to generate clinical reports. Live at [sonohealth.app](https://sonohealth.app).\n2. **Sono-Agent**: Conversational AI patient onboarding flow. Live at [sono-agent.vercel.app](https://sono-agent.vercel.app/onboarding).\n3. **UmukoziHR**: Multi-agent talent acquisition system matching candidates automatically. Live at [recruit.umukozihr.com](https://recruit.umukozihr.com).\n4. **Dwello**: Real-estate deal analyzer with interactive cash-flow and cap rate forecasting. Live at [dwello-indol.vercel.app](https://dwello-indol.vercel.app/how-it-works).\n5. **iUnlockSIM**: Carrier unlocking e-commerce portal with automated API fulfillment. Live at [iunlocksim.vercel.app](https://iunlocksim.vercel.app).\n6. **News AI**: Real-time news aggregator and semantic summarizer. Live at [newsai-app.vercel.app](https://newsai-app.vercel.app).",
+    reply: "Here are my active production projects:\n\n1. **Sono Health**: Clinical AI documentation platform. Dictate naturally to generate clinical reports. Live at [sonohealth.vercel.app](https://sonohealth.vercel.app).\n2. **Sono-Agent**: Conversational AI patient onboarding flow. Live at [sono-agent.vercel.app](https://sono-agent.vercel.app/onboarding).\n3. **UmukoziHR**: Multi-agent talent acquisition system matching candidates automatically. Live at [recruit.umukozihr.com](https://recruit.umukozihr.com).\n4. **Dwello**: Real-estate deal analyzer with interactive cash-flow and cap rate forecasting. Live at [dwello-indol.vercel.app](https://dwello-indol.vercel.app/how-it-works).\n5. **iUnlockSIM**: Carrier unlocking e-commerce portal with automated API fulfillment. Live at [iunlocksim.vercel.app](https://iunlocksim.vercel.app).\n6. **News AI**: Real-time news aggregator and semantic summarizer. Live at [newsai-app.vercel.app](https://newsai-app.vercel.app).",
     terminalLogs: [
       "Fetching active project manifest...",
       "Retrieving status logs from vercel.com...",
@@ -57,7 +57,7 @@ export const chatbotKnowledge: ChatResponse[] = [
   },
   {
     keywords: ["sono health", "medical", "clinical", "doctor", "healthcare", "clinic", "hospital"],
-    reply: "**Sono Health** is an AI-first clinical documentation platform designed to reduce medical administrative overhead.\n\n- **Speech to Text**: Voice-to-Narrative pipeline using Whisper to transcribe consultations.\n- **Semantic Search**: Real-time PubMed queries to find supporting literature and ground medical suggestions.\n- **EHR Integration**: Structured output formatted to match EHR schemas securely.\n\n*Check out the live platform at [sonohealth.app](https://sonohealth.app).*",
+    reply: "**Sono Health** is an AI-first clinical documentation platform designed to reduce medical administrative overhead.\n\n- **Speech to Text**: Voice-to-Narrative pipeline using Whisper to transcribe consultations.\n- **Semantic Search**: Real-time PubMed queries to find supporting literature and ground medical suggestions.\n- **EHR Integration**: Structured output formatted to match EHR schemas securely.\n\n*Check out the live platform at [sonohealth.vercel.app](https://sonohealth.vercel.app).*",
     terminalLogs: [
       "Connecting to PubMed API...",
       "Initializing Whisper audio transcription pipeline...",

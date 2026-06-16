@@ -41,7 +41,7 @@ const industries: Industry[] = [
       { label: 'Full clinical report', sub: 'PDF ready in minutes', type: 'output' },
     ],
     cta: 'See Sono Health Live',
-    ctaUrl: 'https://sonohealth.app',
+    ctaUrl: 'https://sonohealth.vercel.app',
   },
   {
     id: 'recruiting',
